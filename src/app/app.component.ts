@@ -4,15 +4,11 @@ import {Observable} from 'rxjs/Observable';
 @Component({
 	selector: 'app-root',
 	template: `
-		<ng-template [ngIf]="lessons" [ngIfElse]="loading">
-			<div class="lessons-list">
-				<button class="tab-button" (click)="login()">{{loginText}}</button>
-				<button class="tab-button" (click)="signUp()">{{signUpText}}</button>
+		<div class="lesson" *ngIf="lessons" *ngFor="let lesson of lessons">4
+			<div class="lesson-detail">
+				{{lesson | json}}
 			</div>
-		</ng-template>
-		<ng-template #loading>
-			<div>Loading...</div>
-		</ng-template>
+		</div>
 	`})
 export class AppComponent {
 
