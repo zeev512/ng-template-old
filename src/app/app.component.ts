@@ -26,7 +26,7 @@ Approximately 10 lessons ...
 })
 export class AppComponent {
 
-	loginText = 'Login';
+	/*loginText = 'Login';
 	signUpText = 'Sign Up';
 	lessons = ['Lesson 1', 'Lessons 2'];
 
@@ -36,6 +36,8 @@ export class AppComponent {
 
 	signUp() {
 		console.log('Sign Up');
-	}
+	}*/
+	totalEstimate = 10;
+	ctx = {estimate: this.totalEstimate};
 
 }
