@@ -48,21 +48,6 @@ And then on the tab container component, we could define an input property which
 					{{signUpText}}
 				</button>
 		</ng-template>
-
-		<!-- Example 3 -->
-		<div>
-		<ng-template #customTabButtons>
-			<div class="custom-class">
-				<button class="tab-button" (click)="login()">
-					{{loginText}}
-				</button>
-				<button class="tab-button" (click)="signUp()">
-					{{signUpText}}
-				</button>
-			</div>
-		</ng-template>
-		<tab-container [headerTemplate]="defaultTabButtons"></tab-container>
-		</div>
 		`
 })
 export class AppComponent implements OnInit {
@@ -70,6 +55,8 @@ export class AppComponent implements OnInit {
 	loginText = 'Login';
 	signUpText = 'Sign Up';
 	lessons = ['Lesson 1', 'Lessons 2'];
+	totalEstimate = 10;
+	ctx = {estimate: this.totalEstimate};
 
 	@ViewChild('defaultTabButtons')
 	private defaultTabButtonsTpl: TemplateRef<any>;
@@ -85,8 +72,5 @@ export class AppComponent implements OnInit {
 	signUp() {
 		console.log('Sign Up');
 	}
-
-	totalEstimate = 10;
-	ctx = {estimate: this.totalEstimate};
 
 }
