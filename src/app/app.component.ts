@@ -1,19 +1,19 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 /*
-This is workaround be which we add extra div element.
+Possible solution would be to replace the outer div element
+with the ng-container element directive
  */
 @Component({
 	selector: 'app-root',
 	template: `
-		<div *ngIf="lessons">
+		<ng-container *ngIf="lessons">
 			<div class="lesson" *ngFor="let lesson of lessons">
 				<div class="lesson-detail">
 					{{lesson | json}}
 				</div>
 			</div>
-		</div>
-	`})
+		</ng-container>	`})
 export class AppComponent {
 
 	loginText = 'Login';
