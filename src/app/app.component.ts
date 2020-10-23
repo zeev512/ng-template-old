@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 /*
 Here is the breakdown of this example:
 1. This template, unlike the previous templates also has one input variable (it could also have several)
-2. The input variable is called lessonsCounter , and it's de ned via a ng-template property using the pre x let-
+2. The input variable is called lessonsCounter , and it's defined via a ng-template property using the pre x let-
 3. The variable lessonsCounter is visible inside the ng-template body, but not outside
 4. The content of this variable is determined by the expression that its assigned to the property let-lessonsCounter
 5. That expression is evaluated against a context object, passed to ngTemplateOutlet together with the template to instantiate
