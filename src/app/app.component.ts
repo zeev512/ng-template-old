@@ -2,7 +2,14 @@ import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 /*
 Possible solution would be to replace the outer div element
-with the ng-container element directive
+with the ng-container element directive.
+
+As we can see, the ng-container directive provides us with an element
+that we can attach a structural directive to.
+This way we don't have to create an extra element just for that.
+But the major use case for the ng-container directive is that it can
+also provide a placeholder for injecting a template dynamically into the
+page.
  */
 @Component({
 	selector: 'app-root',
