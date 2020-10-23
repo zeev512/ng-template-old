@@ -1,6 +1,7 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-
+//
+// Since ng-template doesn't render itself we will get the empty screen.
+//
 @Component({
 	selector: 'app-root',
 	template: `
