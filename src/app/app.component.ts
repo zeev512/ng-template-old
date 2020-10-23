@@ -23,10 +23,23 @@ The motivvation to do that is to create a more customizable component, where we 
 parameter or configuration object. we can also pass a template as an input parameter.
 
 III. Example 3.
-Let's take for example a tab container, where we would like to give the user of the component the possibility of
-configuring the look and feel of the tab buttons.
-Here is how that would look like, we would start by defining the custom template for the buttons in the parent component.
-And then on the tab container component, we could define an input property which is also a template named headerTemplate
+Let's take for example a tab container, where we would like to give the user of the component the possibility
+of configuring the look and feel of the tab buttons.
+Here is how that would look like, we would start by defining the custom template for the buttons
+in the parent component (this is #customTabButtons template reference).
+And then on the tab container component, we could define an input property which is also a template named headerTemplate.
+A couple of things are going on here, in this final combined example.
+Let's break this down:
+- There is a default template defined for the tab buttons, called defaultTabButtons.
+- This template will be used only if the input property headerTemplate remains undefined.
+- If the property is de ned, then the custom input template passed via headerTemplate will be used to display the buttons instead.
+- The headers template is instantiated inside a ng-container placeholder, using the ngTemplateOutlet property.
+- The decision of which template to use (default or custom) is taken using a ternary expression,
+  but if that logic was complex we could also delegate this to a controller method.
+
+The end result of this design is that the tab container will display a
+default look and feel for the tab buttons if no custom template is
+provided, but it will use the custom template if its available.
 */
 @Component({
 	selector: 'app-root',
@@ -52,6 +65,10 @@ And then on the tab container component, we could define an input property which
 		<!-- Example 3 -->
 		<div>
 		<ng-template #customTabButtons>
+			<div>This is the real usage of customTabButtons reference passed by parent into a child's @Input decorator.
+				Pay attention that if we replace customTabButtons with defaultTabButtons template, then it will be
+				passed through by parent's @ViewChild decorator.
+			</div>
 			<div class="custom-class">
 				<button class="tab-button" (click)="login()">
 					{{loginText}}
@@ -61,7 +78,7 @@ And then on the tab container component, we could define an input property which
 				</button>
 			</div>
 		</ng-template>
-		<tab-container [headerTemplate]="defaultTabButtons"></tab-container>
+		<tab-container [headerTemplate]="customTabButtons"></tab-container>
 		</div>
 		`
 })
@@ -70,6 +87,8 @@ export class AppComponent implements OnInit {
 	loginText = 'Login';
 	signUpText = 'Sign Up';
 	lessons = ['Lesson 1', 'Lessons 2'];
+	totalEstimate = 10;
+	ctx = {estimate: this.totalEstimate};
 
 	@ViewChild('defaultTabButtons')
 	private defaultTabButtonsTpl: TemplateRef<any>;
@@ -85,8 +104,5 @@ export class AppComponent implements OnInit {
 	signUp() {
 		console.log('Sign Up');
 	}
-
-	totalEstimate = 10;
-	ctx = {estimate: this.totalEstimate};
 
 }
