@@ -1,5 +1,4 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 
 @Component({
 	selector: 'app-root',
