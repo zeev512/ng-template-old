@@ -1,7 +1,7 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 /*
-This is workaround be which we add extra div element.
+This is workaround by which we add extra div element.
  */
 @Component({
 	selector: 'app-root',
